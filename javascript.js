@@ -33,11 +33,8 @@ function Print() {
     max = -Infinity;
     min = +Infinity;
     for (let i = 0; i < array.length; i++) {
-        if (array[i] > max) {
+        if (array[i] >= max) {
             max = array[i];
-        }
-        if (array[i] < min) {
-            min = array[i];
         }
     }
     var adjustedArray = correctLength(array, max.length);
