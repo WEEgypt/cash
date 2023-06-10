@@ -29,10 +29,18 @@ function Print() {
     var x10 = document.getElementById("10le").value || "0";
     var x5 = document.getElementById("5le").value || "0";
     var array = [x200, x100, x50, x20, x10, x5];
-    var maxValue = Math.max(...array);
-    sessionStorage.setItem("maxValue", maxValue);
-    var maxLength = sessionStorage.getItem("maxValue").length;
-    var adjustedArray = correctLength(array, maxLength);
+    let max = Math.max.apply(null, array);
+    max = -Infinity;
+    min = +Infinity;
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] > max) {
+            max = array[i];
+        }
+        if (array[i] < min) {
+            min = array[i];
+        }
+    }
+    var adjustedArray = correctLength(array, max.length);
     function correctLength(array, length) {
         array.map(function (v, i) {
             if (array[i].length < length || array[i] == "") {
