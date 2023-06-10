@@ -16,7 +16,7 @@ body {
     margin: auto;
     width: -webkit-fill-available;
     width: -moz-available;
-    min-width: 640px;
+    min-width: 360px;
     max-width: 960px;
     padding: 8px;
 }
