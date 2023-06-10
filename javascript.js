@@ -43,7 +43,7 @@ function Print() {
     var adjustedArray = correctLength(array, max.length);
     function correctLength(array, length) {
         array.map(function (v, i) {
-            if (array[i].length < length || array[i] == "") {
+            if (array[i].length < length) {
                 array[i] += Array(length + 1 - array[i].length).join(" ");
             }
         });
