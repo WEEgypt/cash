@@ -30,13 +30,10 @@ function Print() {
     var x5 = document.getElementById("5le").value;
     var array = [x200, x100, x50, x20, x10, x5];
     let max = Math.max(...array);
-    max = "0";
-    for (let i = 0; i < array.length; i++) {
-        if (array[i] > max) {
-            max = array[i];
+        if (max > "0") {
+            maxLength = max.length;
         }
-    }
-    alert(max.length);
+    alert(maxLength);
     var adjustedArray = correctLength(array, max.length);
     function correctLength(array, length) {
         array.map(function (v, i) {
