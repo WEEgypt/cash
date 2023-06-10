@@ -22,12 +22,12 @@ function ResetCal() {
     document.getElementById("5le").value = "";
 }
 function Print() {
-    var x200 = document.getElementById("200le").value || "0";
-    var x100 = document.getElementById("100le").value || "0";
-    var x50 = document.getElementById("50le").value || "0";
-    var x20 = document.getElementById("20le").value || "0";
-    var x10 = document.getElementById("10le").value || "0";
-    var x5 = document.getElementById("5le").value || "0";
+    var x200 = document.getElementById("200le").value;
+    var x100 = document.getElementById("100le").value;
+    var x50 = document.getElementById("50le").value;
+    var x20 = document.getElementById("20le").value;
+    var x10 = document.getElementById("10le").value;
+    var x5 = document.getElementById("5le").value;
     var array = [x200, x100, x50, x20, x10, x5];
     let max = Math.max(...array);
     max = "0";
@@ -36,8 +36,8 @@ function Print() {
             max = array[i];
         }
     }
-    alert(max);
-    var adjustedArray = correctLength(array, max);
+    alert(max.length);
+    var adjustedArray = correctLength(array, max.length);
     function correctLength(array, length) {
         array.map(function (v, i) {
             if (array[i].length < length) {
