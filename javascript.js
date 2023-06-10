@@ -29,7 +29,7 @@ function Print() {
     var x10 = document.getElementById("10le").value || "0";
     var x5 = document.getElementById("5le").value || "0";
     var array = [x200, x100, x50, x20, x10, x5];
-    let max = Math.max.apply(null, array);
+    let max = Math.max(...array);
     max = "0";
     for (let i = 0; i < array.length; i++) {
         if (array[i] > max) {
