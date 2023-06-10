@@ -62,14 +62,13 @@ function Print() {
         " x 5 LE" +
         "\n" +
         "\n" +
-        "------------------" +
         "\n" +
-        "Total Cash: " +
+        "Total: " +
         total +
         " LE";
     doc = window.open("", "_blank");
     doc.document.open();
-    doc.document.write("<html><head><title>Cash Details</title><style>body {font-family: monospace;}</style></head><body>");
+    doc.document.write("<html><head><title>Cash Details</title><style>body {font-family: monospace;}</style></head><body><p>Cash Details:</p>");
     doc.document.write(document.getElementById("cashdetails").value.replace(/ /gi, "&nbsp;").replace(/\n/gi, "<br>"));
     doc.document.write("</body></html>");
     doc.print();
