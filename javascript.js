@@ -6,11 +6,20 @@ function Cal() {
     var x10 = document.getElementById("10le").value * 10;
     var x5 = document.getElementById("5le").value * 5;
     document.getElementById("content").style.display = "none";
+    document.getElementById("total").style.display = "block";
     document.getElementById("total").innerHTML = "Total Cash: " + parseInt(x200 + x100 + x50 + x20 + x10 + x5);
     document.getElementById("print").style.display = "block";
 }
 function ResetCal() {
-    location.reload();
+    document.getElementById("content").style.display = "block";
+    document.getElementById("total").style.display = "none";
+    document.getElementById("print").style.display = "none";
+    document.getElementById("200le").value = "";
+    document.getElementById("100le").value = "";
+    document.getElementById("50le").value = "";
+    document.getElementById("20le").value = "";
+    document.getElementById("10le").value = "";
+    document.getElementById("5le").value = "";
 }
 function Print() {
     var x200 = document.getElementById("200le").value || 0;
