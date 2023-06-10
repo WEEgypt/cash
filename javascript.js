@@ -36,8 +36,8 @@ function Print() {
             max = array[i];
         }
     }
-    alert(max.length);
-    var adjustedArray = correctLength(array, max.length);
+    alert(max);
+    var adjustedArray = correctLength(array, max);
     function correctLength(array, length) {
         array.map(function (v, i) {
             if (array[i].length < length) {
