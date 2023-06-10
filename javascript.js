@@ -7,7 +7,7 @@ function Cal() {
     var x5 = document.getElementById("5le").value * 5;
     document.getElementById("content").style.display = "none";
     document.getElementById("total").style.display = "block";
-    document.getElementById("total").innerHTML = "Total Cash: " + parseInt(x200 + x100 + x50 + x20 + x10 + x5) + " LE";
+    document.getElementById("total").innerHTML = "Total: " + parseInt(x200 + x100 + x50 + x20 + x10 + x5) + " LE";
     document.getElementById("print").style.display = "block";
 }
 function ResetCal() {
@@ -36,7 +36,7 @@ function Print() {
             max = array[i];
         }
     }
-    var adjustedArray = correctLength(array, "4");
+    var adjustedArray = correctLength(array, max.length);
     function correctLength(array, length) {
         array.map(function (v, i) {
             if (array[i].length < length) {
