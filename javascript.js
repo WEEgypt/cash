@@ -30,9 +30,9 @@ function Print() {
     var x5 = document.getElementById("5le").value || "0";
     var array = [x200, x100, x50, x20, x10, x5];
     let max = Math.max.apply(null, array);
-    max = -Infinity;
+    max = "0";
     for (let i = 0; i < array.length; i++) {
-        if (array[i] >= max) {
+        if (array[i] > max) {
             max = array[i];
         }
     }
