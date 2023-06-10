@@ -69,9 +69,8 @@ function Print() {
     doc.document.write("<html><head><title>Cash Details</title><style>body {font-family: monospace;}</style></head><body><p>Cash Details:</p>");
     doc.document.write(document.getElementById("cashdetails").value.replace(/ /gi, "&nbsp;").replace(/\n/gi, "<br>"));
     doc.document.write("</body></html>");
-    doc.print();
     doc.document.close();
-    doc.close();
+    doc.print();
 }
 function Check(input) {
     if (input.value.length > input.maxLength) {
