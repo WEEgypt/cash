@@ -1,0 +1,52 @@
+:root {
+    --bg: #fff;
+    --color: #000;
+}
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg: #000;
+        --color: #fff;
+    }
+}
+body {
+    background-color: var(--bg);
+    font-family: verdana;
+    color: var(--color);
+    text-align: center;
+    margin: auto;
+    width: -webkit-fill-available;
+    width: -moz-available;
+    min-width: 640px;
+    max-width: 960px;
+    padding: 8px;
+}
+.content {
+    max-width: max-content;
+    margin: auto;
+}
+tr {
+    height: 34px;
+}
+label {
+    margin: 0px 0px 0px 16px;
+    float: left;
+    font-family: monospace;
+    font-size: 18px;
+}
+footer {
+    display: inline-block;
+    font-size: 9px;
+    min-width: 300px;
+}
+input[type="number"] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+    margin: 0;
+    width: 120px;
+    height: 20px;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+        <title>Cash Helper</title>
+        <link rel="icon" href="icon.png" />
+        <link rel="apple-touch-icon" href="icon.png" />
+        <link rel="stylesheet" href="style.css" />
+        <script src="javascript.js"></script>
+    </head>
+    <body>
+        <br />
+        <br />
+        <br />
+        <h2>Cash Helper</h2>
+        <br />
+        <br />
+        <table class="content" id="content">
+            <tr>
+                <td><input type="number" id="200le" /></td>
+                <td><label>x 200 LE</label></td>
+            </tr>
+            <tr>
+                <td><input type="number" id="100le" /></td>
+                <td><label>x 100 LE</label></td>
+            </tr>
+            <tr>
+                <td><input type="number" id="50le" /></td>
+                <td><label>x 50 LE</label></td>
+            </tr>
+            <tr>
+                <td><input type="number" id="20le" /></td>
+                <td><label>x 20 LE</label></td>
+            </tr>
+            <tr>
+                <td><input type="number" id="10le" /></td>
+                <td><label>x 10 LE</label></td>
+            </tr>
+            <tr>
+                <td><input type="number" id="5le" /></td>
+                <td><label>x 5 LE</label></td>
+            </tr>
+            <tr style="height: 14px;">
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td colspan="2"><input style="float: right;" type="button" onclick="Cal()" value="Calculate" /></td>
+            </tr>
+        </table>
+        <p id="total"></p>
+        <br />
+        <textarea style="display: none;" id="cashdetails" readonly></textarea>
+        <div style="display: none;" id="print">
+            <input type="button" onclick="Print()" value="Print Details" />
+            <input type="button" onclick="ResetCal()" value="Reset" />
+        </div>
+        <br />
+        <br />
+        <br />
+    </body>
+</html>
