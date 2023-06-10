@@ -7,7 +7,7 @@ function Cal() {
     var x5 = document.getElementById("5le").value * 5;
     document.getElementById("content").style.display = "none";
     document.getElementById("total").style.display = "block";
-    document.getElementById("total").innerHTML = "Total: " + parseInt(x200 + x100 + x50 + x20 + x10 + x5) + " LE";
+    document.getElementById("total").innerHTML = "Total Cash: " + parseInt(x200 + x100 + x50 + x20 + x10 + x5);
     document.getElementById("print").style.display = "block";
 }
 function ResetCal() {
@@ -22,12 +22,12 @@ function ResetCal() {
     document.getElementById("5le").value = "";
 }
 function Print() {
-    var x200 = document.getElementById("200le").value || number(0);
-    var x100 = document.getElementById("100le").value || 0.toString();
-    var x50 = document.getElementById("50le").value || 0.toString();
-    var x20 = document.getElementById("20le").value || number(0);
-    var x10 = document.getElementById("10le").value || number(0);
-    var x5 = document.getElementById("5le").value || number(0);
+    var x200 = document.getElementById("200le").value || "0";
+    var x100 = document.getElementById("100le").value || "0";
+    var x50 = document.getElementById("50le").value || "0";
+    var x20 = document.getElementById("20le").value || "0";
+    var x10 = document.getElementById("10le").value || "0";
+    var x5 = document.getElementById("5le").value || "0";
     var array = [x200, x100, x50, x20, x10, x5];
     let max = Math.max(...array).toString().length;
     var adjustedArray = correctLength(array, max);
@@ -72,4 +72,9 @@ function Print() {
     doc.print();
     doc.document.close();
     doc.close();
+}
+function Check(input) {
+    if (input.value.length > input.maxLength) {
+        input.value = input.value.slice(0, input.maxLength);
+    }
 }
