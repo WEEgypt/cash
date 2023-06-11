@@ -73,9 +73,9 @@ function Print() {
 	doc.print();
 	setTimeout("closePrintView()", 3000);
 	doc.onafterprint = closePrintView();
-	function closePrintView() {
-		doc.close();
-	}
+}
+function closePrintView() {
+	doc.close();
 }
 function Check(input) {
     if (input.value.length > input.maxLength) {
