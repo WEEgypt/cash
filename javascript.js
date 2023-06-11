@@ -9,6 +9,7 @@ function Cal() {
     document.getElementById("total").style.display = "block";
     document.getElementById("total").innerHTML = "Total: " + parseInt(x200 + x100 + x50 + x20 + x10 + x5) + " LE";
     document.getElementById("print").style.display = "block";
+    document.getElementById("footer").style.display = "none";
 }
 function ResetCal() {
     document.getElementById("content").style.display = "block";
@@ -20,6 +21,7 @@ function ResetCal() {
     document.getElementById("20le").value = "";
     document.getElementById("10le").value = "";
     document.getElementById("5le").value = "";
+    document.getElementById("footer").style.display = "block";
 }
 function Print() {
     var x200 = document.getElementById("200le").value || "0";
