@@ -21,7 +21,7 @@ function ResetCal() {
     document.getElementById("10le").value = "";
     document.getElementById("5le").value = "";
 }
-async function Print() {
+function Print() {
     var x200 = document.getElementById("200le").value || "0";
     var x100 = document.getElementById("100le").value || "0";
     var x50 = document.getElementById("50le").value || "0";
@@ -70,8 +70,12 @@ async function Print() {
     doc.document.write(document.getElementById("cashdetails").value.replace(/ /gi, "&nbsp;").replace(/\n/gi, "<br>"));
     doc.document.write("</body></html>");
     doc.document.close();
-    await doc.print();
-    doc.close();
+	doc.print();
+	setTimeout("closePrintView()", 3000);
+	doc.onafterprint = closePrintView();
+	function closePrintView() {
+		doc.close();
+	}
 }
 function Check(input) {
     if (input.value.length > input.maxLength) {
