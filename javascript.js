@@ -70,8 +70,8 @@ function Print() {
     doc.document.write(document.getElementById("cashdetails").value.replace(/ /gi, "&nbsp;").replace(/\n/gi, "<br>"));
     doc.document.write("</body></html>");
     doc.document.close();
-    doc.print();
-	doc.onfocus = function(){ doc.close(); };
+    setTimeout (function () { doc.print(); }, 5);
+    doc.onfocus = function () { setTimeout(function () { doc.close(); }, 500); }
 }
 function Check(input) {
     if (input.value.length > input.maxLength) {
