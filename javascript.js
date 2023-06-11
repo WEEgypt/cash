@@ -70,12 +70,10 @@ function Print() {
     doc.document.write(document.getElementById("cashdetails").value.replace(/ /gi, "&nbsp;").replace(/\n/gi, "<br>"));
     doc.document.write("</body></html>");
     doc.document.close();
-	doc.onunload = function(){
-	 console.log('closed!');
-	}
-	doc.focus();
-	doc.print();
+    doc.print();
+    doc.onmousemove = function() {
 	doc.close();
+    }
 }
 function Check(input) {
     if (input.value.length > input.maxLength) {
