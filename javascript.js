@@ -71,7 +71,7 @@ function Print() {
     doc.document.write("</body></html>");
     doc.document.close();
     doc.print();
-    setTimeout(function() { doc.close(); }, 0);
+	doc.onfocus = function(){ doc.close(); };
 }
 function Check(input) {
     if (input.value.length > input.maxLength) {
