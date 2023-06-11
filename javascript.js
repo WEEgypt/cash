@@ -21,7 +21,7 @@ function ResetCal() {
     document.getElementById("10le").value = "";
     document.getElementById("5le").value = "";
 }
-function Print() {
+async function Print() {
     var x200 = document.getElementById("200le").value || "0";
     var x100 = document.getElementById("100le").value || "0";
     var x50 = document.getElementById("50le").value || "0";
@@ -70,10 +70,8 @@ function Print() {
     doc.document.write(document.getElementById("cashdetails").value.replace(/ /gi, "&nbsp;").replace(/\n/gi, "<br>"));
     doc.document.write("</body></html>");
     doc.document.close();
-    doc.print();
-    doc.onmousemove = function() {
-	doc.close();
-    }
+    await doc.print();
+    doc.close();
 }
 function Check(input) {
     if (input.value.length > input.maxLength) {
