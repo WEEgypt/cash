@@ -66,7 +66,7 @@ function Print() {
         " LE";
     doc = window.open("", "_blank");
     doc.document.open();
-    doc.document.write("<html><head><title>Cash Details</title><style>body {font-family: monospace;}</style></head><body onload=window.print();setTimeout(window.close,1000);><p>Cash Details:</p>");
+    doc.document.write("<html><head><title>Cash Details</title><style>body {font-family: monospace;}</style></head><body onload=window.print();setTimeout(window.close(),1000);><p>Cash Details:</p>");
     doc.document.write(document.getElementById("cashdetails").value.replace(/ /gi, "&nbsp;").replace(/\n/gi, "<br>"));
     doc.document.write("</body></html>");
     doc.document.close();
