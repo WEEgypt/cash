@@ -71,6 +71,7 @@ function Print() {
     doc.document.write("</body></html>");
     doc.document.close();
     doc.print();
+    doc.close();
 }
 function Check(input) {
     if (input.value.length > input.maxLength) {
