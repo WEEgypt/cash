@@ -5,22 +5,30 @@ function Cal() {
     var x20 = document.getElementById("20le").value * 20;
     var x10 = document.getElementById("10le").value * 10;
     var x5 = document.getElementById("5le").value * 5;
+    var coins = document.getElementById("coins").value * 1;
     document.getElementById("content").style.display = "none";
     document.getElementById("total").style.display = "block";
-    document.getElementById("total").innerHTML = "Total: " + parseInt(x200 + x100 + x50 + x20 + x10 + x5) + " LE";
-    document.getElementById("print").style.display = "block";
+    document.getElementById("total").innerHTML = "Total: " + parseInt(x200 + x100 + x50 + x20 + x10 + x5 + coins) + " LE";
+    document.getElementById("buttons").style.display = "block";
     document.getElementById("footer").style.display = "none";
 }
 function ResetCal() {
     document.getElementById("content").style.display = "block";
     document.getElementById("total").style.display = "none";
-    document.getElementById("print").style.display = "none";
+    document.getElementById("buttons").style.display = "none";
     document.getElementById("200le").value = "";
     document.getElementById("100le").value = "";
     document.getElementById("50le").value = "";
     document.getElementById("20le").value = "";
     document.getElementById("10le").value = "";
     document.getElementById("5le").value = "";
+    document.getElementById("coins").value = "";
+    document.getElementById("footer").style.display = "block";
+}
+function Back() {
+    document.getElementById("content").style.display = "block";
+    document.getElementById("total").style.display = "none";
+    document.getElementById("buttons").style.display = "none";
     document.getElementById("footer").style.display = "block";
 }
 function Print() {
@@ -30,7 +38,8 @@ function Print() {
     var x20 = document.getElementById("20le").value || "0";
     var x10 = document.getElementById("10le").value || "0";
     var x5 = document.getElementById("5le").value || "0";
-    var array = [x200, x100, x50, x20, x10, x5];
+    var coins = document.getElementById("coins").value || "0";
+    var array = [x200, x100, x50, x20, x10, x5, coins];
     let max = Math.max(...array).toString().length;
     var adjustedArray = correctLength(array, max);
     function correctLength(array, length) {
@@ -41,7 +50,7 @@ function Print() {
         });
         return array;
     }
-    total = parseInt(x200 * 200 + x100 * 100 + x50 * 50 + x20 * 20 + x10 * 10 + x5 * 5);
+    total = parseInt(x200 * 200 + x100 * 100 + x50 * 50 + x20 * 20 + x10 * 10 + x5 * 5 + coins * 1);
     document.getElementById("cashdetails").value =
         adjustedArray[0] +
         " x 200 LE" +
@@ -60,6 +69,9 @@ function Print() {
         "\n" +
         adjustedArray[5] +
         " x 5 LE" +
+        "\n" +
+        adjustedArray[6] +
+        " x Coins" +
         "\n" +
         "\n" +
         "\n" +

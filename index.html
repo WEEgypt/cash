@@ -41,6 +41,10 @@
                 <td><input type="number" id="5le" maxlength="10" oninput="Check(this)" /></td>
                 <td><label>x 5 LE</label></td>
             </tr>
+            <tr>
+                <td><input type="number" id="coins" maxlength="10" oninput="Check(this)" /></td>
+                <td><label>x Coins</label></td>
+            </tr>
             <tr style="height: 14px;">
                 <td></td>
                 <td></td>
@@ -52,9 +56,10 @@
         <p style="display: none;" id="total"></p>
         <br />
         <textarea style="display: none;" id="cashdetails" readonly></textarea>
-        <div style="display: none;" id="print">
-            <input type="button" onclick="Print()" value="Print Details" />
+        <div style="display: none;" id="buttons">
+            <input type="button" onclick="Back()" value="Back" />
             <input type="button" onclick="ResetCal()" value="Reset" />
+            <input type="button" onclick="Print()" value="Print Details" />
         </div>
         <br />
         <footer>
