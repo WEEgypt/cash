@@ -8,7 +8,7 @@ function Cal() {
     var coins = document.getElementById("coins").value * 1;
     document.getElementById("content").style.display = "none";
     document.getElementById("total").style.display = "block";
-    document.getElementById("total").innerHTML = "Total: " + parseInt(x200 + x100 + x50 + x20 + x10 + x5 + coins) + " LE";
+    document.getElementById("cash").innerHTML = "Total: " + parseInt(x200 + x100 + x50 + x20 + x10 + x5 + coins) + " LE";
     document.getElementById("buttons").style.display = "block";
     document.getElementById("footer").style.display = "none";
 }
@@ -80,9 +80,11 @@ function Print() {
         " LE";
     doc = window.open("", "_blank");
     doc.document.open();
-    doc.document.write("<html><head><title>Cash Details</title><style>body {font-family: monospace;}</style></head><body onload=window.print();setTimeout(window.close,1000);><p>Cash Details:</p>");
+    doc.document.write(
+        "<html><head><title>Cash Details</title><style>body {font-family: monospace; display: flex; justify-content: center}</style></head><body onload=window.print();setTimeout(window.close,1000);><div><p>Cash Details:</p>"
+    );
     doc.document.write(document.getElementById("cashdetails").value.replace(/ /gi, "&nbsp;").replace(/\n/gi, "<br>"));
-    doc.document.write("</body></html>");
+    doc.document.write("</div></body></html>");
     doc.document.close();
 }
 function Check(input) {

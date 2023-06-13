@@ -45,7 +45,7 @@
                 <td><input type="number" id="coins" maxlength="10" oninput="Check(this)" /></td>
                 <td><label>x Coins</label></td>
             </tr>
-            <tr style="height: 14px;">
+            <tr style="height: 24px;">
                 <td></td>
                 <td></td>
             </tr>
@@ -53,8 +53,11 @@
                 <td colspan="2"><input style="float: right;" type="button" onclick="Cal()" value="Calculate" /></td>
             </tr>
         </table>
-        <p style="display: none;" id="total"></p>
-        <br />
+        <div style="display: none;" id="total">
+            <h3 id="cash"></h3>
+            <br />
+            <br />
+        </div>
         <textarea style="display: none;" id="cashdetails" readonly></textarea>
         <div style="display: none;" id="buttons">
             <input type="button" onclick="Back()" value="Back" />
