@@ -81,7 +81,7 @@ function Print() {
     doc = window.open("", "_blank");
     doc.document.open();
     doc.document.write(
-        "<html><head><title>Cash Details</title><style>body {font-family: monospace; display: flex; justify-content: center}</style></head><body onload=window.print();setTimeout(window.close,1000);><div><p>Cash Details:</p>"
+        "<html lang=en><head><title>Cash Details</title><link rel=icon href=icon.png /><style>body {font-family: monospace; display: flex;} div {margin: 0px auto 0px auto;}</style></head><body onload=window.print();setTimeout(window.close,1000);><div><p>Cash Details:</p>"
     );
     doc.document.write(document.getElementById("cashdetails").value.replace(/ /gi, "&nbsp;").replace(/\n/gi, "<br>"));
     doc.document.write("</div></body></html>");
