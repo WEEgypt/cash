@@ -34,7 +34,7 @@ h3 {
 }
 .mainDiv {
     background-color: var(--mainDiv);
-    padding: 30px 60px 15px 60px;
+    padding: 30px 60px 30px 60px;
 }
 .content {
     max-width: max-content;
