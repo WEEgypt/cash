@@ -10,59 +10,56 @@
         <script src="javascript.js"></script>
     </head>
     <body>
-        <br />
-        <br />
-        <br />
-        <h2>Cash Helper</h2>
-        <br />
-        <br />
-        <table class="content" id="content">
-            <tr>
-                <td><input type="number" id="200le" maxlength="10" oninput="Check(this)" /></td>
-                <td><label>x 200 LE</label></td>
-            </tr>
-            <tr>
-                <td><input type="number" id="100le" maxlength="10" oninput="Check(this)" /></td>
-                <td><label>x 100 LE</label></td>
-            </tr>
-            <tr>
-                <td><input type="number" id="50le" maxlength="10" oninput="Check(this)" /></td>
-                <td><label>x 50 LE</label></td>
-            </tr>
-            <tr>
-                <td><input type="number" id="20le" maxlength="10" oninput="Check(this)" /></td>
-                <td><label>x 20 LE</label></td>
-            </tr>
-            <tr>
-                <td><input type="number" id="10le" maxlength="10" oninput="Check(this)" /></td>
-                <td><label>x 10 LE</label></td>
-            </tr>
-            <tr>
-                <td><input type="number" id="5le" maxlength="10" oninput="Check(this)" /></td>
-                <td><label>x 5 LE</label></td>
-            </tr>
-            <tr>
-                <td><input type="number" id="coins" maxlength="10" oninput="Check(this)" /></td>
-                <td><label>x Coins</label></td>
-            </tr>
-            <tr style="height: 24px;">
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td colspan="2"><input style="float: right;" type="button" onclick="Cal()" value="Calculate" /></td>
-            </tr>
-        </table>
-        <div style="display: none;" id="total">
-            <h3 id="cash"></h3>
-            <br />
-            <br />
-        </div>
-        <textarea style="display: none;" id="cashdetails" readonly></textarea>
-        <div style="display: none;" id="buttons">
-            <input type="button" onclick="Back()" value="Back" />
-            <input type="button" onclick="ResetCal()" value="Reset" />
-            <input type="button" onclick="Print()" value="Print Details" />
+        <div class="mainDiv">
+            <h2>Cash Helper</h2>
+            <table class="content" id="content">
+                <tr>
+                    <td><input type="number" id="200le" maxlength="10" oninput="Check(this)" /></td>
+                    <td><label>x 200 LE</label></td>
+                </tr>
+                <tr>
+                    <td><input type="number" id="100le" maxlength="10" oninput="Check(this)" /></td>
+                    <td><label>x 100 LE</label></td>
+                </tr>
+                <tr>
+                    <td><input type="number" id="50le" maxlength="10" oninput="Check(this)" /></td>
+                    <td><label>x 50 LE</label></td>
+                </tr>
+                <tr>
+                    <td><input type="number" id="20le" maxlength="10" oninput="Check(this)" /></td>
+                    <td><label>x 20 LE</label></td>
+                </tr>
+                <tr>
+                    <td><input type="number" id="10le" maxlength="10" oninput="Check(this)" /></td>
+                    <td><label>x 10 LE</label></td>
+                </tr>
+                <tr>
+                    <td><input type="number" id="5le" maxlength="10" oninput="Check(this)" /></td>
+                    <td><label>x 5 LE</label></td>
+                </tr>
+                <tr>
+                    <td><input type="number" id="coins" maxlength="10" oninput="Check(this)" /></td>
+                    <td><label>x Coins</label></td>
+                </tr>
+                <tr style="height: 24px;">
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input style="float: right;" type="button" onclick="Cal()" value="Calculate" /></td>
+                </tr>
+            </table>
+            <div style="display: none;" id="total">
+                <h3 id="cash"></h3>
+                <br />
+                <br />
+            </div>
+            <textarea style="display: none;" id="cashdetails" readonly></textarea>
+            <div style="display: none; text-align: center;" id="buttons">
+                <input type="button" onclick="Back()" value="Back" />
+                <input type="button" onclick="Print()" value="Print" />
+                <input type="button" onclick="ResetCal()" value="Reset" />
+            </div>
         </div>
         <br />
         <footer>
