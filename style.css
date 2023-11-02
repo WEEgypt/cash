@@ -20,7 +20,8 @@ body {
     font-family: verdana;
     font-size: 14px;
     margin: auto;
-    width: 340px;
+    width: 360px;
+    min-width: max-content;
     color: var(--color);
     padding: 10px;
     background-color: var(--bg);
