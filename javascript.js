@@ -6,13 +6,15 @@ function Cal() {
     var x10 = document.getElementById("10le").value * 10;
     var x5 = document.getElementById("5le").value * 5;
     var coins = document.getElementById("coins").value * 1;
+    document.getElementById("header").innerHTML = "Total";
     document.getElementById("content").style.display = "none";
     document.getElementById("total").style.display = "block";
-    document.getElementById("cash").innerHTML = "Total: " + parseInt(x200 + x100 + x50 + x20 + x10 + x5 + coins) + " LE";
+    document.getElementById("cash").innerHTML = parseInt(x200 + x100 + x50 + x20 + x10 + x5 + coins) + " LE";
     document.getElementById("buttons").style.display = "block";
     document.getElementById("footer").style.display = "none";
 }
 function ResetCal() {
+    document.getElementById("header").innerHTML = "Cash Helper";
     document.getElementById("content").style.display = "block";
     document.getElementById("total").style.display = "none";
     document.getElementById("buttons").style.display = "none";
@@ -26,6 +28,7 @@ function ResetCal() {
     document.getElementById("footer").style.display = "block";
 }
 function Back() {
+    document.getElementById("header").innerHTML = "Cash Helper";
     document.getElementById("content").style.display = "block";
     document.getElementById("total").style.display = "none";
     document.getElementById("buttons").style.display = "none";
