@@ -1,29 +1,24 @@
 :root {
-    --bg: #f2f2f2;
-    --mainDiv: #fff;
-    --color: #2d3737;
+    --bg: #fff;
+    --color: #000;
 }
 @media (prefers-color-scheme: dark) {
     :root {
         --bg: #000;
-        --mainDiv: #2d3737;
         --color: #fff;
     }
 }
 html {
     display: flex;
-    align-items: center;
-    justify-content: center;
     min-height: 100%;
 }
 body {
+    margin: auto;
+    min-width: max-content;
+    padding: 20px;
     font-family: verdana;
     font-size: 14px;
-    margin: auto;
-    width: 360px;
-    min-width: max-content;
     color: var(--color);
-    padding: 10px;
     background-color: var(--bg);
 }
 h2 {
@@ -34,15 +29,10 @@ h3 {
     text-align: center;
 }
 .mainDiv {
-    background-color: var(--mainDiv);
-    padding: 30px 60px 30px 60px;
-}
-.content {
-    max-width: max-content;
     margin: auto;
 }
-tr {
-    height: 34px;
+td {
+    height: 28px;
 }
 label {
     margin: 0px 0px 0px 16px;
@@ -50,20 +40,20 @@ label {
     font-family: monospace;
     font-size: 14px;
 }
-footer {
-    text-align: center;
-    font-size: 9px;
-    min-width: 300px;
-}
 input[type="number"] {
     -moz-appearance: textfield;
     appearance: textfield;
     margin: 0;
-    width: 120px;
-    height: 14px;
 }
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
+}
+input[type="number"] {
+    width: 84px;
+}
+footer {
+    text-align: center;
+    font-size: 9px;
 }
