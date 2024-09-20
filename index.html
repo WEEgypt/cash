@@ -49,7 +49,6 @@
             </tr>
             <tr>
                 <td colspan="2"><input style="float: right;" type="button" onclick="Cal()" value="Calculate" /></td>
-                <td><input style="float: right;" type="button" onclick="ResetCal()" value="Reset" /></td>
             </tr>
         </table>
         <div style="display: none;" id="total">
@@ -58,11 +57,10 @@
             <br />
         </div>
         <textarea style="display: none;" id="cashdetails" readonly></textarea>
-		<iframe style="display: none;" id="myFrame" src=""></iframe>
+        <iframe style="display: none;" id="printFrame"></iframe>
         <div style="display: none; text-align: center;" id="buttons">
             <input type="button" onclick="Back()" value="Back" />
             <input type="button" onclick="Print()" value="Print" />
-            <input type="button" onclick="StartOver()" value="Start Over" />
         </div>
         <br />
         <script>
@@ -82,31 +80,6 @@
                 document.getElementById("cash").innerHTML = total + " LE";
                 document.getElementById("buttons").style.display = "block";
                 document.getElementById("footer").style.display = "none";
-            }
-            function ResetCal() {
-                document.getElementById("200le").value = "";
-                document.getElementById("100le").value = "";
-                document.getElementById("50le").value = "";
-                document.getElementById("20le").value = "";
-                document.getElementById("10le").value = "";
-                document.getElementById("5le").value = "";
-                document.getElementById("coins").value = "";
-                document.getElementById("visa").value = "";
-            }
-            function StartOver() {
-                document.getElementById("header").innerHTML = "Cash Helper";
-                document.getElementById("mainDiv").style.display = "block";
-                document.getElementById("total").style.display = "none";
-                document.getElementById("buttons").style.display = "none";
-                document.getElementById("200le").value = "";
-                document.getElementById("100le").value = "";
-                document.getElementById("50le").value = "";
-                document.getElementById("20le").value = "";
-                document.getElementById("10le").value = "";
-                document.getElementById("5le").value = "";
-                document.getElementById("coins").value = "";
-                document.getElementById("visa").value = "";
-                document.getElementById("footer").style.display = "block";
             }
             function Back() {
                 document.getElementById("header").innerHTML = "Cash Helper";
@@ -157,15 +130,13 @@
                     "Total: " +
                     total +
                     " LE";
-                doc = document.getElementById('myFrame').contentWindow;
+                doc = document.getElementById("printFrame").contentWindow;
                 doc.document.open();
-                doc.document.write(
-                    "<html lang=en><head><title>Cash Details</title><style>body {font-family: monospace; display: flex;} div {margin: 0px auto 0px auto;}</style></head><body><div><p>Cash Details:</p>"
-                );
+                doc.document.write("<html lang=en><head><title>Cash Details</title><style>body {font-family: monospace; display: flex;} div {margin: 0px auto 0px auto;}</style></head><body><div><p>Cash Details:</p>");
                 doc.document.write(document.getElementById("cashdetails").value.replace(/ /gi, "&nbsp;").replace(/\n/gi, "<br>"));
                 doc.document.write("</div></body></html>");
                 doc.document.close();
-				document.getElementById('myFrame').contentWindow.print();
+                document.getElementById("printFrame").contentWindow.print();
             }
             function Check(input) {
                 if (input.value.length > input.maxLength) {
