@@ -166,9 +166,9 @@
                 doc.document.close();
                 doc.onload = function() {
                     doc.print();
-                if (doc.document.readyState == 'complete') {
-                    setInterval(doc.close(),1000);
                 }
+				doc.onafterprint = function() {
+                    doc.close();
                 }
             }
             function Check(input) {
