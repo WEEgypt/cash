@@ -165,7 +165,7 @@
                 doc.document.write("</div></body></html>");
                 doc.document.close();
 				doc.print();
-				doc.setInterval(doc.close, 1000);
+				doc.setTimeout(doc.close, 1000);
             }
             function Check(input) {
                 if (input.value.length > input.maxLength) {
