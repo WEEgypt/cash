@@ -165,7 +165,16 @@
                 doc.document.write("</div></body></html>");
                 doc.document.close();
 				doc.print();
-				doc.onload = function(e){ doc.setInterval(doc.close, 0); };
+				doc.onfocus = function(){doc.close();}
+				
+				
+
+				
+				
+				
+				
+				
+				
             }
             function Check(input) {
                 if (input.value.length > input.maxLength) {
