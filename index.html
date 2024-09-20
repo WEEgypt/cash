@@ -58,6 +58,7 @@
             <br />
         </div>
         <textarea style="display: none;" id="cashdetails" readonly></textarea>
+		<iframe style="display: none;" id="myFrame" src=""></iframe>
         <div style="display: none; text-align: center;" id="buttons">
             <input type="button" onclick="Back()" value="Back" />
             <input type="button" onclick="Print()" value="Print" />
@@ -165,7 +166,10 @@
                 doc.document.write("</div></body></html>");
                 doc.document.close();
 				doc.print();
-				doc.setInterval(doc.close, 500);
+				doc.onload = function () {
+					doc.setInterval(
+					doc.close, 500);
+				}
             }
             function Check(input) {
                 if (input.value.length > input.maxLength) {
