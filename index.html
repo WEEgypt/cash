@@ -156,7 +156,7 @@
                     "Total: " +
                     total +
                     " LE";
-				doc = window.open("", "", "popup");
+                doc = window.open("", "_blank");
                 doc.document.open();
                 doc.document.write(
                     "<html lang=en><head><title>Cash Details</title><style>body {font-family: monospace; display: flex;} div {margin: 0px auto 0px auto;}</style></head><body><div><p>Cash Details:</p>"
@@ -165,7 +165,7 @@
                 doc.document.write("</div></body></html>");
                 doc.document.close();
 				doc.print();
-				doc.setInterval(doc.close, 0);
+				doc.onload = function(e){ doc.setInterval(doc.close, 0); };
             }
             function Check(input) {
                 if (input.value.length > input.maxLength) {
