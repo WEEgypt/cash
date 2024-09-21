@@ -17,6 +17,9 @@ self.addEventListener("install", (e) => {
   );
 });
 self.addEventListener("fetch", (e) => {
+  console.log(`[Service Worker] Fetched resource ${e.request.url}`);
+});
+self.addEventListener("fetch", (e) => {
   e.respondWith(
     (async () => {
       const r = await caches.match(e.request);
