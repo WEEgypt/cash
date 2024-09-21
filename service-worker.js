@@ -1,14 +1,20 @@
-self.addEventListener('install', (event) => {
+const addResourcesToCache = async (resources) => {
+  const cache = await caches.open("v1");
+  await cache.addAll(resources);
+};
+
+self.addEventListener("install", (event) => {
   event.waitUntil(
-    caches.open('my-pwa-cache').then((cache) => {
-      return cache.addAll([
-        '/',
-        'index.html',
-        'icon.png',
-        'manifest.webmanifest',
-        'pulltorefresh.js',
-        'style.css',
-      ]);
-    })
+    addResourcesToCache([
+      "/",
+      "/index.html",
+      "/style.css",
+      "/app.js",
+      "/image-list.js",
+      "/star-wars-logo.jpg",
+      "/gallery/bountyHunters.jpg",
+      "/gallery/myLittleVader.jpg",
+      "/gallery/snowTroopers.jpg",
+    ]),
   );
 });
