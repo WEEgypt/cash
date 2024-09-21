@@ -73,6 +73,7 @@
             if (isInWebAppiOS) {
                 PullToRefresh.init({
                     mainElement: "body",
+                    triggerElement: "html",
                     onRefresh() {
                         window.location.reload();
                     },
