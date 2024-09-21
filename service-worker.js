@@ -1,5 +1,5 @@
 // Files to cache
-const cacheName = 'js13kPWA-v1';
+const cacheName = 'cach';
 const appShellFiles = [
   "index.html",
   "icon.png",
@@ -7,12 +7,6 @@ const appShellFiles = [
   "pulltorefresh.js",
   "style.css",
 ];
-const gamesImages = [];
-for (let i = 0; i < games.length; i++) {
-  gamesImages.push(`data/img/${games[i].slug}.jpg`);
-}
-const contentToCache = appShellFiles.concat(gamesImages);
-
 // Installing Service Worker
 self.addEventListener('install', (e) => {
   console.log('[Service Worker] Install');
