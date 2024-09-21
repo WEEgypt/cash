@@ -3,16 +3,13 @@
   "short_name": "Cash Helper",
   "description": "Cash Helper.",
   "icons": [
-
     {
       "src": "icon.png",
       "sizes": "512x512",
       "type": "image/png"
     }
   ],
-  "start_url": "/index.html",
+  "start_url": "index.html",
   "display_override": ["fullscreen", "minimal-ui"],
-  "display": "standalone",
-  "theme_color": "#B12A34",
-  "background_color": "#B12A34"
+  "display": "standalone"
 }
