@@ -1,15 +1,13 @@
 {
-  "name": "Cash Helper",
-  "short_name": "Cash Helper",
-  "description": "Cash Helper.",
-  "icons": [
-    {
-      "src": "icon.png",
-      "sizes": "512x512",
-      "type": "image/png"
-    }
-  ],
-  "start_url": "index.html",
-  "display_override": ["fullscreen", "minimal-ui"],
-  "display": "standalone"
+    "name": "Cash Helper",
+    "icons": [
+        {
+            "src": "icon.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "start_url": "index.html",
+    "display_override": ["fullscreen", "minimal-ui"],
+    "display": "standalone"
 }
