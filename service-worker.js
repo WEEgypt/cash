@@ -1,39 +1,20 @@
-// Files to cache
-const cacheName = 'cach';
-const appShellFiles = [
-  "index.html",
-  "icon.png",
-  "manifest.webmanifest",
-  "pulltorefresh.js",
-  "style.css",
-];
-// Installing Service Worker
-self.addEventListener('install', (e) => {
-  console.log('[Service Worker] Install');
-  e.waitUntil((async () => {
-    const cache = await caches.open(cacheName);
-    console.log('[Service Worker] Caching all: app shell and content');
-    await cache.addAll(contentToCache);
-  })());
+self.addEventListener('install', (event) => {
+  event.waitUntil(
+    caches.open('my-pwa-cache').then((cache) => {
+      return cache.addAll([
+        '/',
+        '/index.html',
+        '/manifest.json',
+        '/static/js/bundle.js',
+        // Add other assets and routes to cache
+      ]);
+    })
+  );
 });
-
-// Fetching content using Service Worker
-self.addEventListener('fetch', (e) => {
-    // Cache http and https only, skip unsupported chrome-extension:// and file://...
-    if (!(
-       e.request.url.startsWith('http:') || e.request.url.startsWith('https:')
-    )) {
-        return; 
-    }
-
-  e.respondWith((async () => {
-    const r = await caches.match(e.request);
-    console.log(`[Service Worker] Fetching resource: ${e.request.url}`);
-    if (r) return r;
-    const response = await fetch(e.request);
-    const cache = await caches.open(cacheName);
-    console.log(`[Service Worker] Caching new resource: ${e.request.url}`);
-    cache.put(e.request, response.clone());
-    return response;
-  })());
+self.addEventListener('fetch', (event) => {
+  event.respondWith(
+    caches.match(event.request).then((response) => {
+      return response || fetch(event.request);
+    })
+  );
 });
