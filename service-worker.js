@@ -2,10 +2,11 @@ self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open('my-pwa-cache').then((cache) => {
       return cache.addAll([
-        '/',
-        '/index.html',
-        '/manifest.json',
-        '/static/js/bundle.js',
+		"index.html",
+		"icon.png",
+		"manifest.webmanifest",
+		"pulltorefresh.js",
+		"style.css",
         // Add other assets and routes to cache
       ]);
     })
