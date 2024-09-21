@@ -11,7 +11,8 @@
         <link rel="apple-touch-icon" href="icon.png" />
         <link rel="stylesheet" href="style.css" />
         <link rel="manifest" href="manifest.webmanifest" />
-        <script src="pulltorefresh.js"></script>
+        <script async src="service-worker.js"></script>
+        <script async src="pulltorefresh.js"></script>
     </head>
     <body>
         <h2 id="header">Cash Helper</h2>
@@ -69,28 +70,6 @@
         </div>
         <br />
         <script>
-            if ("serviceWorker" in navigator) {
-                window.addEventListener("load", () => {
-                    navigator.serviceWorker
-                        .register("service-worker.js")
-                        .then((registration) => {
-                            console.log("Service Worker registered with scope:", registration.scope);
-                        })
-                        .catch((error) => {
-                            console.log("Service Worker registration failed:", error);
-                        });
-                });
-            }
-            const isInWebAppiOS = window.navigator.standalone === true;
-            if (isInWebAppiOS) {
-                PullToRefresh.init({
-                    mainElement: "body",
-                    triggerElement: "html",
-                    onRefresh() {
-                        window.location.reload();
-                    },
-                });
-            }
             function Cal() {
                 x200 = document.getElementById("200le").value || "0";
                 x100 = document.getElementById("100le").value || "0";

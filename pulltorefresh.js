@@ -429,3 +429,16 @@
 
     return index;
 });
+
+{
+    const isInWebAppiOS = window.navigator.standalone === true;
+    if (isInWebAppiOS) {
+        PullToRefresh.init({
+            mainElement: "body",
+            triggerElement: "html",
+            onRefresh() {
+                window.location.reload();
+            },
+        });
+    }
+}
