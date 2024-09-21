@@ -11,6 +11,7 @@
         <link rel="apple-touch-icon" href="icon.png" />
         <link rel="stylesheet" href="style.css" />
         <link rel="manifest" href="manifest.webmanifest" />
+        <script src="pulltorefresh.js"></script>
     </head>
     <body>
         <h2 id="header">Cash Helper</h2>
@@ -68,6 +69,16 @@
         </div>
         <br />
         <script>
+            const isInWebAppiOS = window.navigator.standalone === true;
+            if (isInWebAppiOS) {
+                PullToRefresh.init({
+                    mainElement: "body",
+                    onRefresh() {
+                        window.location.reload();
+                        alert(window.navigator.userAgent);
+                    },
+                });
+            }
             function Cal() {
                 x200 = document.getElementById("200le").value || "0";
                 x100 = document.getElementById("100le").value || "0";
