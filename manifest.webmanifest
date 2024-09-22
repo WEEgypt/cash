@@ -10,5 +10,6 @@
         }
     ],
     "start_url": "index.html",
+    "display_override": ["fullscreen", "minimal-ui"],
     "display": "standalone"
 }
