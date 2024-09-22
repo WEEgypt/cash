@@ -43,7 +43,7 @@ navigator.serviceWorker.ready.then(function(registration) {
     .then(function(subscription) {
         if (!subscription) {
             // No subscription, register now
-            const applicationServerKey = urlB64ToUint8Array('YOUR_PUBLIC_VAPID_KEY_HERE');
+            const applicationServerKey = urlB64ToUint8Array('BBcaN-5rQetRLq3aNmrHihP0pyV0iKq5z0EwxWjPbzcgU2oAqx-rsBiL7fYwUZpcDpGX9lcsKqlZxQ_A1TqCunE=');
             registration.pushManager.subscribe({
                 userVisibleOnly: true,
                 applicationServerKey: applicationServerKey
