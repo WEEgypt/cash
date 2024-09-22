@@ -431,7 +431,7 @@
 });
 
 {
-    const isInWebAppiOS = !window.navigator.standalone === true;
+    const isInWebAppiOS = window.navigator.standalone === true;
     if (isInWebAppiOS) {
         PullToRefresh.init({
             mainElement: "body",
