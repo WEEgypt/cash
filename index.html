@@ -68,7 +68,95 @@
             <input type="button" onclick="Print()" value="Print" />
         </div>
         <br />
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyBdlahkgwc782dGOXK3QzoVIhNsxEaieL0",
+    authDomain: "we-book-d75b1.firebaseapp.com",
+    projectId: "we-book-d75b1",
+    storageBucket: "we-book-d75b1.appspot.com",
+    messagingSenderId: "446960360430",
+    appId: "1:446960360430:web:2e92e0bab8b32741cdccff",
+    measurementId: "G-CGEHKQHND9"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+  
+  firebase.initializeApp(config);
+  const messaging = firebase.messaging();
+  messaging
+  .requestPermission()
+  .then(() => {
+    message.innerHTML = "Notifications allowed";
+    return messaging.getToken();
+  })
+  .then(token => {
+    tokenString.innerHTML = "Token Is : " + token;
+  })
+  .catch(err => {
+    errorMessage.innerHTML = errorMessage.innerHTML + "; " + err;
+    console.log("No permission to send push", err);
+  });
+  messaging.onMessage(payload => {
+  console.log("Message received. ", payload);
+  const { title, ...options } = payload.notification;
+});
+firebase.initializeApp({
+  messagingSenderId: "446960360430"
+});
+const messaging = firebase.messaging();
+messaging.setBackgroundMessageHandler(payload => {
+  const notification = JSON.parse(payload.data.notification);
+  const notificationTitle = notification.title;
+  const notificationOptions = {
+    body: notification.body
+  };
+  //Show the notification :)
+  return self.registration.showNotification(
+    notificationTitle,
+    notificationOptions
+  );
+});
+  
+  
+  
+  
+  
+  
+  
+  
+</script>
+
+
+
+
+
         <script>
+		
+		
+		
+const button = document.getElementById("header");
+button.addEventListener("click", () => {
+  Notification.requestPermission().then((result) => {
+    if (result === "granted") {
+      randomNotification();
+    }
+  });
+});
+		
+		
+		
+		
+		
             function Cal() {
                 x200 = document.getElementById("200le").value || "0";
                 x100 = document.getElementById("100le").value || "0";
