@@ -37,3 +37,25 @@ self.addEventListener('push', function(event) {
         self.registration.showNotification(data.title, options)
     );
 });
+navigator.serviceWorker.ready.then(function(registration) {
+    // Check for an existing subscription
+    registration.pushManager.getSubscription()
+    .then(function(subscription) {
+        if (!subscription) {
+            // No subscription, register now
+            const applicationServerKey = urlB64ToUint8Array('YOUR_PUBLIC_VAPID_KEY_HERE');
+            registration.pushManager.subscribe({
+                userVisibleOnly: true,
+                applicationServerKey: applicationServerKey
+            })
+            .then(function(subscription) {
+                console.log('User is subscribed:', subscription);
+            })
+            .catch(function(err) {
+                console.log('Failed to subscribe the user:', err);
+            });
+        } else {
+            console.log('User is already subscribed.');
+        }
+    });
+});
