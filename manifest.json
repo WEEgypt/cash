@@ -1,9 +1,10 @@
 {
   "name": "Cash Helper",
-  "short_name": "Cash++",
+  "short_name": "Cash",
   "start_url": "index.html",
   "display": "standalone",
-  "description": "Cash Helper developed by Mamdouh Khalaf.",
+  "background_color": "#ffffff",
+  "description": "Cash Helper - developed by Mamdouh Khalaf.",
   "icons": [
     {
       "src": "icon.png",
