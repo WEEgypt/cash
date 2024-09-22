@@ -68,6 +68,11 @@
             <input type="button" onclick="Print()" value="Print" />
         </div>
         <br />
+        <div id="soft-ask">
+    Stay updated with the latest news directly on your device. Allow notifications?
+    <button onclick="subscribeUser()">Yes</button>
+    <button onclick="hideSoftAsk()">Not now</button>
+</div>
         <script>
             function Cal() {
                 x200 = document.getElementById("200le").value || "0";
