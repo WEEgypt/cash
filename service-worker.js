@@ -14,7 +14,7 @@
 }
 self.addEventListener("install", (event) => {
     event.waitUntil(
-        caches.open("cashHelper-v1").then((cache) => {
+        caches.open("cashHelper-v2").then((cache) => {
             return cache.addAll(["icon.png", "index.html", "manifest.json", "pulltorefresh.js", "style.css"]);
         })
     );
