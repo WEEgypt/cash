@@ -431,13 +431,13 @@
 });
 
 {
-    const isInWebAppiOS = window.navigator.standalone === true;
+    const isInWebAppiOS = !window.navigator.standalone === true;
     if (isInWebAppiOS) {
         PullToRefresh.init({
             mainElement: "body",
             triggerElement: "html",
             onRefresh() {
-                document.location.reload();
+                window.location.href = "index.html";
             },
         });
     }
