@@ -1,15 +1,14 @@
 {
-  "name": "Cash Helper",
-  "short_name": "Cash",
-  "start_url": "index.html",
-  "display": "standalone",
-  "background_color": "#ffffff",
-  "description": "Cash Helper - developed by Mamdouh Khalaf.",
-  "icons": [
-    {
-      "src": "icon.png",
-      "sizes": "512x512",
-      "type": "image/png"
-    }
-  ]
+    "name": "Cash Helper",
+    "short_name": "Cash",
+    "start_url": "index.html",
+    "display": "standalone",
+    "orientation": "any",
+    "lang": "en-US",
+    "background_color": "#5b2c92",
+    "description": "Cash Helper - Developed by Mamdouh Khalaf.",
+    "icons": [
+        { "purpose": "maskable", "sizes": "512x512", "src": "icon512_maskable.png", "type": "image/png" },
+        { "purpose": "any", "sizes": "512x512", "src": "icon512_rounded.png", "type": "image/png" }
+    ]
 }
