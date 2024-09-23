@@ -22,7 +22,7 @@ function onPromptClick() {
     });
   }
 }
-const vapidPublicKey = 'BP4s3Hty8mASI0KmoKpAn0tHsMBlcx7wd3XysXHgUn149cDn66ujADeJBueEM4qE4KvBgiYT8rr_5YH017bChy4';
+const vapidPublicKey = 'BGXp74wHZFD2nDdpwtG5xM9NIVHQu8hxn_FyJOaVWFH5eGMowgMl0BRIJ9ZfQzhdEzwVC26-dUItRx0k8YsQVs4';
 
 async function initServiceWorker() {
   if ('serviceWorker' in navigator) {
@@ -45,7 +45,7 @@ async function initServiceWorker() {
 }
 
 function sendSubscriptionToServer(subscription) {
-	console.warn(JSON.stringify(subscription))
+	console.log(JSON.stringify(subscription))
 }
 
 const targetUrl = '...';
