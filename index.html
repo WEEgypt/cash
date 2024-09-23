@@ -11,7 +11,6 @@
         <link rel="apple-touch-icon" href="icon.png" />
         <link rel="stylesheet" href="style.css" />
         <link rel="manifest" href="manifest.json" />
-        <script src="service-worker.js" defer></script>
     </head>
     <body>
         <h2 id="header">Cash Helper</h2>
@@ -61,6 +60,10 @@
             <br />
             <br />
         </div>
+		<button disabled class="js-push-btn mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+			Enable Push Messaging
+		</button>
+		<section class="subscription-details js-subscription-details is-invisible">
         <textarea style="display: none;" id="cashdetails" readonly></textarea>
         <iframe style="display: none;" id="printFrame"></iframe>
         <div style="display: none; text-align: center;" id="buttons">
