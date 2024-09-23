@@ -58,7 +58,7 @@ async function subscribeUserToPush() {
 
   const subscribeOptions = {
     userVisibleOnly: true,
-    applicationServerKey: PUBLIC_VAPID_KEY,
+    applicationServerKey: "BBcaN-5rQetRLq3aNmrHihP0pyV0iKq5z0EwxWjPbzcgU2oAqx-rsBiL7fYwUZpcDpGX9lcsKqlZxQ_A1TqCunE=",
   };
 
   const pushSubscription = await registration.pushManager.subscribe(
