@@ -68,12 +68,11 @@ async function subscribeUserToPush() {
     });
     console.log("Push Registered...");
 
-    // Store info
-    await fetch("/subscribe", {
-        method: "POST",
-        body: JSON.stringify(subscription),
-        headers: {
-            "content-type": "application/json"
-        }
-    });
+ axios
+    .post("/api/subscription", pushSubscription)
+    .then((response) => {
+      console.log(response);
+    })
+    .catch((error) => console.log(error));
+  return pushSubscription;
 }
