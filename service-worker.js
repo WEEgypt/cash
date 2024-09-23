@@ -54,22 +54,26 @@ function requestPermission() {
   });
 }
 async function subscribeUserToPush() {
-  const registration = await registerServiceWorker();
+    // Register Service Worker
+    console.log("Registering service worker...");
+    const register = await navigator.serviceWorker.register("service-worker.js", {
+        scope: "/portal/"
+    });
+    console.log("Service Worker Registered...");
 
-  const subscribeOptions = {
-    userVisibleOnly: true,
-    applicationServerKey: "BL1uDZrihwbcL47votOIFJmUTMVVF4KY0q4s4PjcDrmOz7PAnobIx4D4eSM0H33S-AiWZVuQOamO4uZem23oje0=",
-  };
+    console.log("Registering Push...");
+    const subscription = await register.pushManager.subscribe({
+        userVisibleOnly: true,
+        applicationServerKey: urlBase64ToUint8Array("BL1uDZrihwbcL47votOIFJmUTMVVF4KY0q4s4PjcDrmOz7PAnobIx4D4eSM0H33S-AiWZVuQOamO4uZem23oje0=")
+    });
+    console.log("Push Registered...");
 
-  const pushSubscription = await registration.pushManager.subscribe(
-    subscribeOptions
-  );
-
-  axios
-    .post("/api/subscription", pushSubscription)
-    .then((response) => {
-      console.log(response);
-    })
-    .catch((error) => console.log(error));
-  return pushSubscription;
+    // Store info
+    await fetch("/subscribe", {
+        method: "POST",
+        body: JSON.stringify(subscription),
+        headers: {
+            "content-type": "application/json"
+        }
+    });
 }
