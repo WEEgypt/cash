@@ -22,7 +22,7 @@ function onPromptClick() {
     });
   }
 }
-const vapidPublicKey = 'BImhJYWdikRsGgXfL5kx5xZRHdN82a60Fmn1QNFUVxQ15G1RFbv8C_8gFBsKQ4ABpXJqFpW5rRUbw-8XtVXnXyw';
+const vapidPublicKey = 'BP4s3Hty8mASI0KmoKpAn0tHsMBlcx7wd3XysXHgUn149cDn66ujADeJBueEM4qE4KvBgiYT8rr_5YH017bChy4';
 
 async function initServiceWorker() {
   if ('serviceWorker' in navigator) {
@@ -45,11 +45,7 @@ async function initServiceWorker() {
 }
 
 function sendSubscriptionToServer(subscription) {
-  fetch('subscribe', {
-    method: 'post',
-    body: JSON.stringify(subscription),
-    headers: { 'content-type': 'application/json' }
-  });
+	console.warn(JSON.stringify(subscription))
 }
 
 window.addEventListener('load', () => {

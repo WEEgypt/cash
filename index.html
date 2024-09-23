@@ -11,9 +11,10 @@
         <link rel="apple-touch-icon" href="icon.png" />
         <link rel="stylesheet" href="style.css" />
         <link rel="manifest" href="manifest.json" />
+        <script src="main.js"></script>
     </head>
     <body>
-        <h2 id="header">Cash Helper</h2>
+        <h2 id="header" onclick="onPromptClick()">Cash Helper</h2>
         <table class="mainDiv" id="mainDiv">
             <tr>
                 <td><input type="number" id="200le" maxlength="10" oninput="Check(this)" /></td>
@@ -60,10 +61,6 @@
             <br />
             <br />
         </div>
-		<button disabled class="js-push-btn mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
-			Enable Push Messaging
-		</button>
-		<section class="subscription-details js-subscription-details is-invisible">
         <textarea style="display: none;" id="cashdetails" readonly></textarea>
         <iframe style="display: none;" id="printFrame"></iframe>
         <div style="display: none; text-align: center;" id="buttons">
@@ -72,158 +69,6 @@
         </div>
         <br />
         <script>
-		
-		
-		
-		
-		
-const applicationServerPublicKey = 'BMAnN21MIL0KnnKPorWfJSbdkirl4kxkvL_a5xNasX_dOtblgvRfe-Y8Np56y7ELjDvc75_zZaBUbmvIp1630yA';
-
-const pushButton = document.querySelector('.js-push-btn');
-
-let isSubscribed = false;
-let swRegistration = null;
-
-function urlB64ToUint8Array(base64String) {
-  const padding = '='.repeat((4 - base64String.length % 4) % 4);
-  const base64 = (base64String + padding)
-    .replace(/\-/g, '+')
-    .replace(/_/g, '/');
-
-  const rawData = window.atob(base64);
-  const outputArray = new Uint8Array(rawData.length);
-
-  for (let i = 0; i < rawData.length; ++i) {
-    outputArray[i] = rawData.charCodeAt(i);
-  }
-  return outputArray;
-}
-
-function updateBtn() {
-  if (Notification.permission === 'denied') {
-    pushButton.textContent = 'Push Messaging Blocked.';
-    pushButton.disabled = true;
-    updateSubscriptionOnServer(null);
-    return;
-  }
-
-  if (isSubscribed) {
-    pushButton.textContent = 'Disable Push Messaging';
-  } else {
-    pushButton.textContent = 'Enable Push Messaging';
-  }
-
-  pushButton.disabled = false;
-}
-
-function updateSubscriptionOnServer(subscription) {
-  // TODO: Send subscription to application server
-
-  const subscriptionJson = document.querySelector('.js-subscription-json');
-  const subscriptionDetails =
-    document.querySelector('.js-subscription-details');
-
-  if (subscription) {
-    subscriptionJson.textContent = JSON.stringify(subscription);
-    subscriptionDetails.classList.remove('is-invisible');
-  } else {
-    subscriptionDetails.classList.add('is-invisible');
-  }
-}
-
-function subscribeUser() {
-  const applicationServerKey = urlB64ToUint8Array(applicationServerPublicKey);
-  swRegistration.pushManager.subscribe({
-    userVisibleOnly: true,
-    applicationServerKey: applicationServerKey
-  })
-  .then(function(subscription) {
-    console.log('User is subscribed.');
-
-    updateSubscriptionOnServer(subscription);
-
-    isSubscribed = true;
-
-    updateBtn();
-  })
-  .catch(function(err) {
-    console.log('Failed to subscribe the user: ', err);
-    updateBtn();
-  });
-}
-
-function unsubscribeUser() {
-  swRegistration.pushManager.getSubscription()
-  .then(function(subscription) {
-    if (subscription) {
-      return subscription.unsubscribe();
-    }
-  })
-  .catch(function(error) {
-    console.log('Error unsubscribing', error);
-  })
-  .then(function() {
-    updateSubscriptionOnServer(null);
-
-    console.log('User is unsubscribed.');
-    isSubscribed = false;
-
-    updateBtn();
-  });
-}
-
-function initializeUI() {
-  pushButton.addEventListener('click', function() {
-    pushButton.disabled = true;
-    if (isSubscribed) {
-      unsubscribeUser();
-    } else {
-      subscribeUser();
-    }
-  });
-
-  // Set the initial subscription value
-  swRegistration.pushManager.getSubscription()
-  .then(function(subscription) {
-    isSubscribed = !(subscription === null);
-
-    updateSubscriptionOnServer(subscription);
-
-    if (isSubscribed) {
-      console.log('User IS subscribed.');
-    } else {
-      console.log('User is NOT subscribed.');
-    }
-
-    updateBtn();
-  });
-}
-
-if ('serviceWorker' in navigator && 'PushManager' in window) {
-  console.log('Service Worker and Push is supported');
-
-  navigator.serviceWorker.register('service-worker.js')
-  .then(function(swReg) {
-    console.log('Service Worker is registered', swReg);
-
-    swRegistration = swReg;
-    initializeUI();
-  })
-  .catch(function(error) {
-    console.error('Service Worker Error', error);
-  });
-} else {
-  console.warn('Push messaging is not supported');
-  pushButton.textContent = 'Push Not Supported';
-}
-
-		
-		
-		
-		
-		
-		
-		
             function Cal() {
                 x200 = document.getElementById("200le").value || "0";
                 x100 = document.getElementById("100le").value || "0";
