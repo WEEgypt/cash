@@ -1,0 +1,8 @@
+{
+  "endpoint": "https://updates.push.services.mozilla.com/wpush/v2/...",
+  "expirationTime": null,
+  "keys": {
+    "auth": "...",
+    "p256dh": "..."
+  }
+}
