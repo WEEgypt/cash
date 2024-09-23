@@ -26,3 +26,51 @@ self.addEventListener("fetch", (event) => {
         })
     );
 });
+if ('serviceWorker' in navigator && 'PushManager' in window) {
+  console.log('Service Worker and Push are supported');
+
+  navigator.serviceWorker.register('service-worker.js')
+  .then(function(swReg) {
+    console.log('Service Worker is registered', swReg);
+
+    swRegistration = swReg;
+  })
+  .catch(function(error) {
+    console.error('Service Worker Error', error);
+  });
+} else {
+  console.warn('Push messaging is not supported');
+  pushButton.textContent = 'Push Not Supported';
+}
+const applicationServerPublicKey = 'BF7XaPVrpSngVdQ8RbFTctQNPcxylNqaqiiztKGJWAMsdoijf9mLeMvfBYQUkVM_oJdIqHg5dUmLk__ae_ttakw';
+function initializeUI() {
+  // Set the initial subscription value
+  swRegistration.pushManager.getSubscription()
+  .then(function(subscription) {
+    isSubscribed = !(subscription === null);
+
+    if (isSubscribed) {
+      console.log('User IS subscribed.');
+    } else {
+      console.log('User is NOT subscribed.');
+    }
+
+    updateBtn();
+  });
+}
+function updateBtn() {
+  if (isSubscribed) {
+    pushButton.textContent = 'Disable Push Messaging';
+  } else {
+    pushButton.textContent = 'Enable Push Messaging';
+  }
+
+  pushButton.disabled = false;
+}
+navigator.serviceWorker.register('service-worker.js')
+.then(function(swReg) {
+  console.log('Service Worker is registered', swReg);
+
+  swRegistration = swReg;
+  initializeUI();
+})
