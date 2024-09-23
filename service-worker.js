@@ -1,4 +1,5 @@
-
+const applicationServerPublicKey = 'BCW6JPG-T7Jx0bYKMhAbL6j3DL3VTTib7dwvBjQ' +
+  'C_496a12auzzKFnjgFjCsys_YtWkeMLhogfSlyM0CaIktx7o';
 {
     if ("serviceWorker" in navigator) {
         window.addEventListener("load", () => {
@@ -65,7 +66,7 @@ async function subscribeUserToPush() {
     console.log("Registering Push...");
     const subscription = await register.pushManager.subscribe({
         userVisibleOnly: true,
-        applicationServerKey: urlBase64ToUint8Array('BGXp74wHZFD2nDdpwtG5xM9NIVHQu8hxn_FyJOaVWFH5eGMowgMl0BRIJ9ZfQzhdEzwVC26-dUItRx0k8YsQVs4')
+        applicationServerKey: urlB64ToUint8Array(applicationServerPublicKey)
     });
     console.log("Push Registered...");
 	
