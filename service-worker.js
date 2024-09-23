@@ -71,7 +71,12 @@ async function subscribeUserToPush() {
 	
 	
 
-await subscription.subscribe();
-
+fetch('/save-subscription', {
+  method: 'POST',
+  body: JSON.stringify(subscription),
+  headers: {
+    'Content-Type': 'application/json'
+  }
+});
 
 }
