@@ -67,12 +67,8 @@ async function subscribeUserToPush() {
         applicationServerKey: "BL1uDZrihwbcL47votOIFJmUTMVVF4KY0q4s4PjcDrmOz7PAnobIx4D4eSM0H33S-AiWZVuQOamO4uZem23oje0"
     });
     console.log("Push Registered...");
+	
+	await this.createToken(subscription);
 
- axios
-    .post("/api/subscription", pushSubscription)
-    .then((response) => {
-      console.log(response);
-    })
-    .catch((error) => console.log(error));
-  return pushSubscription;
+
 }
