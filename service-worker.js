@@ -65,7 +65,7 @@ async function subscribeUserToPush() {
     console.log("Registering Push...");
     const subscription = await register.pushManager.subscribe({
         userVisibleOnly: true,
-        applicationServerKey: "BL1uDZrihwbcL47votOIFJmUTMVVF4KY0q4s4PjcDrmOz7PAnobIx4D4eSM0H33S-AiWZVuQOamO4uZem23oje0"
+        applicationServerKey: "eyJhbGciOiJSUzI1NiIsImtpZCI6InRyYW5zaWVudCIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwczovL2FwaS5tYWdpY2JlbGwuY29tIiwiZXhwIjoxNzI3MDYyNjc5LCJpYXQiOjE3MjcwNTkwNzksImp0aSI6IjAxOTIxY2JlLTJmYTktNzZkOS1iZmYwLWViY2MzMThhYTlkYiIsIlJvbGUiOiJQUk9KRUNUIiwiVXNlcktleSI6eyJJRCI6bnVsbCwiRXh0ZXJuYWxJRCI6IiIsIkVtYWlsIjoiIn0sIlByb2plY3RLZXkiOnsiSUQiOjkxNzMsIk5hbWUiOiJEZWZhdWx0IFByb2plY3QiLCJBUElLZXkiOiI5OTkxMGMyZGI1ODJiYmFlZjMzMGMxYzZhODgxZDlmYzQwYzJjYmI3IiwiV29ya3NwYWNlSUQiOjU2MDF9fQ.U6lwNDUP872ZzyWuOnfwSSEdu-NBq3CXVVbwNcz_1Vt5kWGUSZlzznr4LQ27VrqGCwweUktlI-rz7zoO6e4nDLCldctQqJhED6Un2Nu9-6JfsE49YpBSul7EkEn3Fun7OYRRMZdv7bS5LUVoW0jF6wqSunUHl3HPgBzpXNnSK9s"
     });
     console.log("Push Registered...");
 	
