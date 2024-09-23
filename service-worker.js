@@ -65,7 +65,7 @@ async function subscribeUserToPush() {
     console.log("Registering Push...");
     const subscription = await register.pushManager.subscribe({
         userVisibleOnly: true,
-        applicationServerKey: urlBase64ToUint8Array('BL1uDZrihwbcL47votOIFJmUTMVVF4KY0q4s4PjcDrmOz7PAnobIx4D4eSM0H33S-AiWZVuQOamO4uZem23oje0')
+        applicationServerKey: urlBase64ToUint8Array('BGXp74wHZFD2nDdpwtG5xM9NIVHQu8hxn_FyJOaVWFH5eGMowgMl0BRIJ9ZfQzhdEzwVC26-dUItRx0k8YsQVs4')
     });
     console.log("Push Registered...");
 	
