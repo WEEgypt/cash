@@ -57,7 +57,7 @@ async function subscribeUserToPush() {
     // Register Service Worker
     console.log("Registering service worker...");
     const register = await navigator.serviceWorker.register("service-worker.js", {
-        scope: "/portal/"
+        scope: ""
     });
     console.log("Service Worker Registered...");
 
