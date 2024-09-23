@@ -26,51 +26,63 @@ self.addEventListener("fetch", (event) => {
         })
     );
 });
-if ('serviceWorker' in navigator && 'PushManager' in window) {
-  console.log('Service Worker and Push are supported');
 
-  navigator.serviceWorker.register('service-worker.js')
-  .then(function(swReg) {
-    console.log('Service Worker is registered', swReg);
 
-    swRegistration = swReg;
-  })
-  .catch(function(error) {
-    console.error('Service Worker Error', error);
-  });
-} else {
-  console.warn('Push messaging is not supported');
-  pushButton.textContent = 'Push Not Supported';
-}
-const applicationServerPublicKey = 'BF7XaPVrpSngVdQ8RbFTctQNPcxylNqaqiiztKGJWAMsdoijf9mLeMvfBYQUkVM_oJdIqHg5dUmLk__ae_ttakw';
-function initializeUI() {
-  // Set the initial subscription value
-  swRegistration.pushManager.getSubscription()
-  .then(function(subscription) {
-    isSubscribed = !(subscription === null);
 
-    if (isSubscribed) {
-      console.log('User IS subscribed.');
-    } else {
-      console.log('User is NOT subscribed.');
-    }
+const applicationServerPublicKey = 'BImhJYWdikRsGgXfL5kx5xZRHdN82a60Fmn1QNFUVxQ15G1RFbv8C_8gFBsKQ4ABpXJqFpW5rRUbw-8XtVXnXyw';
 
-    updateBtn();
-  });
-}
-function updateBtn() {
-  if (isSubscribed) {
-    pushButton.textContent = 'Disable Push Messaging';
-  } else {
-    pushButton.textContent = 'Enable Push Messaging';
+/* eslint-enable max-len */
+
+function urlB64ToUint8Array(base64String) {
+  const padding = '='.repeat((4 - base64String.length % 4) % 4);
+  const base64 = (base64String + padding)
+    .replace(/\-/g, '+')
+    .replace(/_/g, '/');
+
+  const rawData = window.atob(base64);
+  const outputArray = new Uint8Array(rawData.length);
+
+  for (let i = 0; i < rawData.length; ++i) {
+    outputArray[i] = rawData.charCodeAt(i);
   }
-
-  pushButton.disabled = false;
+  return outputArray;
 }
-navigator.serviceWorker.register('service-worker.js')
-.then(function(swReg) {
-  console.log('Service Worker is registered', swReg);
 
-  swRegistration = swReg;
-  initializeUI();
-})
+self.addEventListener('push', function(event) {
+  console.log('[Service Worker] Push Received.');
+  console.log(`[Service Worker] Push had this data: "${event.data.text()}"`);
+
+  const title = 'WE Book';
+  const options = {
+    body: event.data.text(),
+    icon: 'icon.png',
+    badge: 'icon.png'
+  };
+
+  event.waitUntil(self.registration.showNotification(title, options));
+});
+
+self.addEventListener('notificationclick', function(event) {
+  console.log('[Service Worker] Notification click Received.');
+
+  event.notification.close();
+
+  event.waitUntil(
+    clients.openWindow('https://developers.google.com/web/')
+  );
+});
+
+self.addEventListener('pushsubscriptionchange', function(event) {
+  console.log('[Service Worker]: \'pushsubscriptionchange\' event fired.');
+  const applicationServerKey = urlB64ToUint8Array(applicationServerPublicKey);
+  event.waitUntil(
+    self.registration.pushManager.subscribe({
+      userVisibleOnly: true,
+      applicationServerKey: applicationServerKey
+    })
+    .then(function(newSubscription) {
+      // TODO: Send to application server
+      console.log('[Service Worker] New subscription: ', newSubscription);
+    })
+  );
+});
