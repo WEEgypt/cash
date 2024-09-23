@@ -70,5 +70,11 @@ async function subscribeUserToPush() {
 	
 	await this.createToken(subscription);
 
-
+ axios
+    .post("/api/subscription", pushSubscription)
+    .then((response) => {
+      console.log(response);
+    })
+    .catch((error) => console.log(error));
+  return pushSubscription;
 }
