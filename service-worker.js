@@ -69,10 +69,10 @@ async function subscribeUserToPush() {
     console.log("Push Registered...");
 
  axios
-    .post("/api/subscription", pushSubscription)
+    .post("/api/subscription", register)
     .then((response) => {
       console.log(response);
     })
     .catch((error) => console.log(error));
-  return pushSubscription;
+  return register;
 }
