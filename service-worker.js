@@ -1,5 +1,3 @@
-const applicationServerPublicKey = 'BCW6JPG-T7Jx0bYKMhAbL6j3DL3VTTib7dwvBjQ' +
-  'C_496a12auzzKFnjgFjCsys_YtWkeMLhogfSlyM0CaIktx7o';
 {
     if ("serviceWorker" in navigator) {
         window.addEventListener("load", () => {
@@ -28,59 +26,3 @@ self.addEventListener("fetch", (event) => {
         })
     );
 });
-function registerServiceWorker() {
-  return navigator.serviceWorker
-    .register("service-worker.js")
-    .then(function (registration) {
-      console.log("Service worker successfully registered.");
-      return registration;
-    })
-    .catch(function (err) {
-      console.error("Unable to register service worker.", err);
-    });
-}
-function requestPermission() {
-  return new Promise((resolve, reject) => {
-    const permissionResult = Notification.requestPermission((result) => {
-      resolve(result);
-    });
-    if (permissionResult) {
-      permissionResult.then(resolve, reject);
-    }
-  }).then((permissionResult) => {
-    if (permissionResult !== "granted") {
-      throw new Error("Permission denied");
-    }
-
-    subscribeUserToPush();
-  });
-}
-async function subscribeUserToPush() {
-    // Register Service Worker
-    console.log("Registering service worker...");
-    const register = await navigator.serviceWorker.register("service-worker.js", {
-        scope: ""
-    });
-    console.log("Service Worker Registered...");
-
-    console.log("Registering Push...");
-    const subscription = await register.pushManager.subscribe({
-        userVisibleOnly: true,
-        applicationServerKey: urlB64ToUint8Array(applicationServerPublicKey)
-    });
-    console.log("Push Registered...");
-	
-	
-	
-
-fetch('/save-subscription', {
-  method: 'POST',
-  body: JSON.stringify(subscription),
-  headers: {
-    'Content-Type': 'application/json'
-  }
-});
-
-
-
-}
