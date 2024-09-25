@@ -5,7 +5,7 @@ const applicationServerKey = urlB64ToUint8Array('BL1uDZrihwbcL47votOIFJmUTMVVF4K
 
 // Register service worker
 if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/service-worker.js')
+    navigator.serviceWorker.register('service-worker.js')
         .then(() => console.log('Service Worker registered.'))
         .catch(error => console.error('Service Worker registration failed:', error));
 }
