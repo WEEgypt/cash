@@ -1,0 +1,73 @@
+:root {
+    --bg: #fff;
+    --color: #000;
+}
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg: #000;
+        --color: #fff;
+    }
+}
+body {
+    background-color: var(--bg);
+    color: var(--color);
+    font-family: verdana;
+    font-size: 14px;
+    margin: auto;
+    min-width: 360px;
+    animation: transitionIn 0.75s;
+}
+label {
+    vertical-align: middle;
+}
+input[type="number"],
+input[type="text"] {
+    width: 180px;
+    float: right;
+}
+input[type="number"] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+    margin: 0;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input:invalid {
+    background-color: #ffdddd;
+}
+select {
+    width: 33.33%;
+    float: right;
+}
+.date {
+    width: 188px;
+    float: right;
+}
+#areas,
+#stores,
+#users {
+    width: 300px;
+    text-align-last: center;
+}
+textarea {
+    resize: none;
+    width: -webkit-fill-available;
+    width: -moz-available;
+    height: 460px;
+    padding: 10px 10px 10px 10px;
+    box-sizing: border-box;
+    font-family: monospace;
+}
+@keyframes transitionIn {
+    from {
+        opacity: 0;
+        transform: rotatex(-10deg);
+    }
+    to {
+        opacity: 1;
+        transform: rotatex(0);
+    }
+}

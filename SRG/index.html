@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <title>Sales Report Generator</title>
+        <link rel="icon" href="icon.png" />
+        <link rel="apple-touch-icon" href="icon.png" />
+        <link rel="stylesheet" href="style.css" />
+        <link rel="manifest" href="manifest.json" />
+        <script src="script.js"></script>
+		<!-- PushAlert -->
+		<script type="text/javascript">
+				(function(d, t) {
+						var g = d.createElement(t),
+						s = d.getElementsByTagName(t)[0];
+						g.src = "https://cdn.pushalert.co/integrate_250a7840a9f1a2eec66e967c1840f9b2.js";
+						s.parentNode.insertBefore(g, s);
+				}(document, "script"));
+		</script>
+		<!-- End PushAlert -->
+    </head>
+    <body>
+        <div style="text-align: center;">
+            <div style="display: inline-block; min-width: 300px; text-align: left;">
+                <br />
+                <br />
+                <br />
+                <div>
+                    <h3>Sales Report Generator</h3>
+                    <br />
+                    <label style="width: max-content; font-size: 10px;">Generate sales report for ?</label>
+                    <br />
+                    <br />
+                    <div>
+                        <button style="width: 300px;" id="agent" onclick="goTo('agent.html')">Agent</button>
+                        <br />
+                        <br />
+                        <button style="width: 300px;" id="store" onclick="goTo('store.html')">Store</button>
+                        <br />
+                        <br />
+                        <button style="width: 300px;" id="area" onclick="goTo('area.html')">Area</button>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <br />
+            <footer>
+                <p style="padding-top: 8px; font-size: 9px;">Developed by: Mamdouh Khalaf .. "MUE Team"</p>
+            </footer>
+        </div>
+    </body>
+</html>
