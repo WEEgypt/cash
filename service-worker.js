@@ -22,42 +22,57 @@ self.addEventListener("install", (event) => {
   self.skipWaiting();
 });
 
+
+
+
+
 self.addEventListener("fetch", (event) => {
   const requestURL = new URL(event.request.url);
+
+  // Ignore requests from chrome extensions or non-GET requests
   if (
     requestURL.protocol === "chrome-extension:" ||
     event.request.method !== "GET"
   ) {
     return;
   }
+
   event.respondWith(
-    caches.match(event.request).then((cachedResponse) => {
-      if (cachedResponse) {
-        return cachedResponse;
-      }
-      return fetch(event.request)
-        .then((networkResponse) => {
+    caches.open(CACHE_NAME).then((cache) => {
+      return cache.match(event.request).then((cachedResponse) => {
+        const fetchPromise = fetch(event.request).then((networkResponse) => {
+          // Only cache successful responses (status 200) and ignore opaque responses
           if (
-            !networkResponse ||
-            networkResponse.status !== 200 ||
-            networkResponse.type === "opaque"
+            networkResponse &&
+            networkResponse.status === 200 &&
+            networkResponse.type !== "opaque"
           ) {
-            if (networkResponse && networkResponse.status === 404) {
-              return caches.match(NOT_FOUND_URL);
-            }
-            return networkResponse;
-          }
-          return caches.open(CACHE_NAME).then((cache) => {
             cache.put(event.request, networkResponse.clone());
-            return networkResponse;
-          });
-        })
-        .catch(() => {
+          }
+
+          // Handle 404 responses and serve a custom 404 page if needed
+          if (networkResponse && networkResponse.status === 404) {
+            return caches.match(NOT_FOUND_URL);
+          }
+
+          return networkResponse;
+        }).catch(() => {
+          // If network fails, return offline page or cached content
           return caches.match(OFFLINE_URL);
         });
+
+        // Return the cached response immediately, but also update the cache in the background
+        return cachedResponse || fetchPromise;
+      });
     })
   );
 });
+
+
+
+
+
+
 self.addEventListener("activate", (event) => {
   event.waitUntil(
     caches.keys().then((cacheNames) => {
