@@ -8,10 +8,12 @@ if ("serviceWorker" in navigator) {
           registration.scope
         );
       })
-      .catch((error) => {
-        console.log("Service Worker registration failed:", error);
+      .catch((err) => {
+        console.log("Service Worker registration failed:", err);
       });
   });
+} else {
+  console.log("Service Workers are not supported in this browser.");
 }
 function Cal() {
   x200 = document.getElementById("200le").value || "0";
